@@ -13,10 +13,22 @@ export const StationsPage = () => {
         <div className="header-left">
           <div className="logo-container">
             <img 
-              src="/images/logo-terpel.jpg" 
+              src="/Terpel_Ptecnica/images/logo-terpel.jpg" 
               alt="Logo Terpel" 
               className="logo-terpel"
-            />
+              onError={(e) => {
+               // Si la imagen no carga, mostrar texto
+              e.target.style.display = 'none';
+              const parent = e.target.parentElement;
+              const fallback = document.createElement('div');
+              fallback.className = 'logo-text-fallback';
+              fallback.innerHTML = `
+              <span style="font-size: 28px; background: #E63946; color: white; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">⛽</span>
+              <span style="font-size: 24px; font-weight: 700; color: #212529; margin-left: 8px;">Ter<span style="color: #E63946;">pel</span></span>
+    `;
+    parent.appendChild(fallback);
+  }}
+/>
           </div>
           <div className="header-text">
             <h1>Contenido por Estación</h1>
