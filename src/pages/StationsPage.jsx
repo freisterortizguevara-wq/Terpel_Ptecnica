@@ -13,7 +13,7 @@ export const StationsPage = () => {
         <div className="header-left">
           <div className="logo-container">
             <img 
-              src="/Terpel_Ptecnica/images/logo-terpel.jpg" 
+              src="/images/logo-terpel.jpg" 
               alt="Logo Terpel" 
               className="logo-terpel"
               onError={(e) => {
