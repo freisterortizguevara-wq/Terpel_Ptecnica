@@ -7,9 +7,9 @@ export const StationsPage = () => {
   const [selectedStationId, setSelectedStationId] = useState(null);
   const { data: stations } = useStations();
 
-  // URL del logo RAW de GitHub
- const logoUrl = 'https://raw.githubusercontent.com/freisterortizguevara-wq/Terpel_Ptecnica/main/public/images/logo_terpel.jpg';
-  // Depuración: mostrar la URL en consola
+  // ✅ URL correcta del logo (sin public/)
+  const logoUrl = 'https://raw.githubusercontent.com/freisterortizguevara-wq/Terpel_Ptecnica/main/images/logo-terpel.jpg';
+
   console.log('🔍 URL del logo:', logoUrl);
 
   return (
@@ -23,7 +23,6 @@ export const StationsPage = () => {
               className="logo-terpel"
               onError={(e) => {
                 console.error('❌ Error al cargar el logo:', logoUrl);
-                // Si la imagen no carga, mostrar texto
                 e.target.style.display = 'none';
                 const parent = e.target.parentElement;
                 const fallback = document.createElement('div');
