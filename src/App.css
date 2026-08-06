@@ -2,15 +2,22 @@
     TERPEL APP - ESTILOS CORPORATIVOS
    ======================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
 /* ========== VARIABLES ========== */
 :root {
   /* Colores principales Terpel */
-  --terpel-red: #E63946;
-  --terpel-red-dark: #C62828;
-  --terpel-red-light: #FDE8EA;
-  --terpel-gold: #C4A84D;
-  --terpel-gold-light: #F5F0E0;
-  
+  --terpel-red: #DA251D;
+  --terpel-red-dark: #8F0F0C;
+  --terpel-red-light: #FDECEA;
+  --terpel-gold: #FFB81C;
+  --terpel-gold-light: #FFF6E3;
+
+  /* Antracita (panel de control / header) */
+  --terpel-ink: #101114;
+  --terpel-ink-soft: #1B1D22;
+  --terpel-ink-line: rgba(255, 255, 255, 0.08);
+
   /* Colores neutros */
   --terpel-white: #FFFFFF;
   --terpel-gray-50: #F8F9FA;
@@ -23,26 +30,29 @@
   --terpel-gray-700: #495057;
   --terpel-gray-800: #343A40;
   --terpel-gray-900: #212529;
-  
+
   /* Sombras */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
   --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.10);
-  --shadow-red: 0 4px 16px rgba(230, 57, 70, 0.15);
-  
+  --shadow-red: 0 4px 16px rgba(218, 37, 29, 0.18);
+  --shadow-red-strong: 0 10px 26px -8px rgba(218, 37, 29, 0.45);
+
   /* Bordes */
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
-  
+
   /* Transiciones */
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   /* Tipografía */
-  --font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-family: 'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
 }
 
 /* ========== RESET ========== */
@@ -80,81 +90,111 @@ body {
   margin: 0 auto;
   background: var(--terpel-white);
   border-radius: var(--radius-lg);
-  padding: 32px 36px 28px;
+  padding: 0 36px 28px;
   box-shadow: var(--shadow-lg);
   position: relative;
   overflow: hidden;
 }
 
-/* Barra superior decorativa */
-.stations-page::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--terpel-red), var(--terpel-gold), var(--terpel-red));
-  background-size: 200% 100%;
-  animation: gradientMove 4s ease-in-out infinite;
-}
-
-@keyframes gradientMove {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
 /* ========================================
-   HEADER
+   HEADER — panel de control antracita
    ======================================== */
 
 .page-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 0 24px 0;
-  border-bottom: 1px solid var(--terpel-gray-200);
-  margin-bottom: 28px;
-  flex-wrap: wrap;
   gap: 16px;
+  flex-wrap: wrap;
+  margin: 0 -36px;
+  padding: 28px 36px 30px;
+  background: radial-gradient(120% 200% at 10% 0%, #1c1e24 0%, var(--terpel-ink) 55%, #0b0b0d 100%);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '';
+  position: absolute;
+  inset: -45% -8% auto auto;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(218, 37, 29, 0.35) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .header-left {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 22px;
+  z-index: 1;
 }
 
 /* Logo */
 .logo-container {
   flex-shrink: 0;
-  padding: 4px 12px 4px 4px;
-  border-radius: var(--radius-md);
-  background: var(--terpel-white);
-  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.logo-container:hover {
-  transform: scale(1.02);
+.logo-mark {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 4px 10px rgba(218, 37, 29, 0.4));
 }
 
+/* Compatibilidad con logo en imagen, si se usa en vez del SVG */
 .logo-terpel {
-  height: 44px;
+  height: 40px;
   width: auto;
   max-width: 150px;
   object-fit: contain;
   display: block;
 }
 
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-text .wordmark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 23px;
+  letter-spacing: -0.4px;
+  color: var(--terpel-white);
+}
+
+.logo-text .wordmark .accent {
+  color: var(--terpel-gold);
+}
+
+.logo-text .tagline {
+  margin-top: 5px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--terpel-gray-500);
+}
+
 /* Títulos del header */
+.header-text {
+  z-index: 1;
+  padding-left: 22px;
+  border-left: 1px solid var(--terpel-ink-line);
+}
+
 .header-text h1 {
+  font-family: var(--font-display);
   font-size: 24px;
-  font-weight: 600;
-  color: var(--terpel-gray-900);
+  font-weight: 700;
+  color: var(--terpel-white);
   letter-spacing: -0.3px;
 }
 
@@ -163,46 +203,107 @@ body {
 }
 
 .header-text .subtitle {
-  font-size: 14px;
-  color: var(--terpel-gray-600);
-  margin-top: 2px;
+  font-size: 13.5px;
+  color: var(--terpel-gray-500);
+  margin-top: 4px;
   font-weight: 400;
 }
 
 /* Botón Visitar Terpel */
 .header-right {
   flex-shrink: 0;
+  z-index: 1;
 }
 
 .btn-terpel {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 22px;
-  color: var(--terpel-gray-700);
+  padding: 12px 24px;
+  color: var(--terpel-white);
   text-decoration: none;
   border-radius: 30px;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 13px;
   transition: var(--transition);
-  border: 1.5px solid var(--terpel-gray-300);
-  background: var(--terpel-white);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, var(--terpel-red) 0%, var(--terpel-red-dark) 100%);
+  box-shadow: var(--shadow-red-strong);
 }
 
 .btn-terpel:hover {
-  border-color: var(--terpel-red);
-  color: var(--terpel-red);
-  background: var(--terpel-red-light);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-red);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #E8362E 0%, var(--terpel-red) 100%);
+  box-shadow: 0 14px 30px -8px rgba(218, 37, 29, 0.55);
 }
 
 .btn-terpel:active {
   transform: translateY(0);
 }
 
+.btn-terpel:focus-visible {
+  outline: 2px solid var(--terpel-gold);
+  outline-offset: 3px;
+}
+
 .btn-terpel .icon {
   font-size: 16px;
+}
+
+/* ========================================
+   FLOW GAUGE — divisor con animación de flujo
+   (elemento de firma, entre el header y el contenido)
+   ======================================== */
+
+.flow-gauge {
+  position: relative;
+  height: 26px;
+  margin: 0 -36px;
+  background: var(--terpel-ink);
+  overflow: hidden;
+  border-bottom: 1px solid var(--terpel-ink-line);
+}
+
+.flow-gauge-ticks {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 36px;
+}
+
+.flow-gauge-ticks span {
+  width: 2px;
+  height: 8px;
+  background: var(--terpel-ink-line);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.flow-gauge-sweep {
+  position: absolute;
+  top: 0;
+  left: -35%;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(218, 37, 29, 0.55) 35%, var(--terpel-gold) 65%, transparent 100%);
+  opacity: 0.9;
+  animation: flowSweep 5.5s ease-in-out infinite;
+}
+
+@keyframes flowSweep {
+  0%   { left: -35%; }
+  50%  { left: 100%; }
+  100% { left: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-gauge-sweep {
+    animation: none;
+    opacity: 0.4;
+    left: 30%;
+  }
 }
 
 /* ========================================
@@ -213,7 +314,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
-  margin: 4px 0 12px;
+  margin: 28px 0 12px;
 }
 
 @media (max-width: 992px) {
@@ -236,12 +337,24 @@ body {
 }
 
 .section-header h2 {
-  font-size: 17px;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 16.5px;
+  font-weight: 700;
   color: var(--terpel-gray-900);
   display: flex;
   align-items: center;
   gap: 10px;
+  letter-spacing: -0.1px;
+}
+
+.section-header h2::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--terpel-red);
+  box-shadow: 0 0 0 3px var(--terpel-red-light);
 }
 
 .section-header h2 .badge {
@@ -254,12 +367,14 @@ body {
 }
 
 .section-header .station-count {
-  font-size: 13px;
-  color: var(--terpel-gray-600);
-  background: var(--terpel-gray-100);
-  padding: 4px 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--terpel-red-dark);
+  background: var(--terpel-red-light);
+  padding: 5px 14px;
   border-radius: 30px;
-  font-weight: 500;
 }
 
 /* ========================================
@@ -772,10 +887,28 @@ body {
   color: var(--terpel-gray-500);
   text-decoration: none;
   transition: var(--transition);
+  position: relative;
+}
+
+.page-footer .footer-links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -3px;
+  height: 1px;
+  background: var(--terpel-red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
 }
 
 .page-footer .footer-links a:hover {
   color: var(--terpel-red);
+}
+
+.page-footer .footer-links a:hover::after {
+  transform: scaleX(1);
 }
 
 /* ========================================
@@ -870,20 +1003,31 @@ body {
   }
 
   .stations-page {
-    padding: 20px 16px 20px;
+    padding: 0 16px 20px;
     border-radius: var(--radius-md);
   }
 
   .page-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
-    padding-bottom: 16px;
+    gap: 16px;
+    margin: 0 -16px;
+    padding: 22px 16px 24px;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+  }
+
+  .flow-gauge {
+    margin: 0 -16px;
   }
 
   .header-left {
     width: 100%;
     flex-wrap: wrap;
+  }
+
+  .header-text {
+    padding-left: 0;
+    border-left: none;
   }
 
   .header-text h1 {
@@ -969,7 +1113,7 @@ body {
 
 @media (max-width: 480px) {
   .stations-page {
-    padding: 14px 12px 16px;
+    padding: 0 12px 16px;
   }
 
   .header-text h1 {
