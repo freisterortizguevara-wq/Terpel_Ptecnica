@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { StationList } from '../components/StationList';
 import { ServicesDisplay } from '../components/ServicesDisplay';
 import { useStations } from '../hooks/useStations';
-import './StationsPage.css';
+// import './StationsPage.css';  // ← Eliminado
 
 export const StationsPage = () => {
   const [selectedStationId, setSelectedStationId] = useState(null);
@@ -28,8 +28,8 @@ export const StationsPage = () => {
           </div>
 
           <div className="header-text">
-            <h1>Estaciones de Servicio</h1>
-            <p className="subtitle">Servicios de cada Estacion</p>
+            <h1>Contenido por Estación</h1>
+            <p className="subtitle">Gestiona los servicios de cada estación</p>
           </div>
         </div>
 
