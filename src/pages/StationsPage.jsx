@@ -13,27 +13,14 @@ export const StationsPage = () => {
       <header className="page-header">
         <div className="header-left">
           <div className="logo-container">
-            <svg
-              className="logo-mark"
-              viewBox="0 0 48 48"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Terpel"
-            >
-              <defs>
-                <linearGradient id="tpFlame" x1="8" y1="4" x2="40" y2="46" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stopColor="var(--terpel-gold)" />
-                  <stop offset="45%" stopColor="var(--terpel-red)" />
-                  <stop offset="100%" stopColor="var(--terpel-red-dark)" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M24 2C24 2 12 15.5 12 27.5C12 35.5 17.5 42 24 42C30.5 42 36 35.5 36 27.5C36 21 31 15 27.5 11C28.3 15 26.5 17.5 24.5 18.5C24.9 13.5 22 8.5 24 2Z"
-                fill="url(#tpFlame)"
-              />
-              <ellipse cx="24" cy="30" rx="6" ry="8" fill="rgba(255,255,255,0.18)" />
-            </svg>
+            <div className="logo-badge">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Terpel">
+                <path
+                  d="M12 1C12 1 6 7.8 6 13.8C6 17.8 8.7 21 12 21C15.3 21 18 17.8 18 13.8C18 10.5 15.5 7.5 13.7 5.5C14.1 7.5 13.3 8.7 12.3 9.2C12.5 6.7 11 4.2 12 1Z"
+                  fill="#FFFFFF"
+                />
+              </svg>
+            </div>
             <div className="logo-text">
               <span className="wordmark">Ter<span className="accent">pel</span></span>
               <span className="tagline">A tu servicio</span>
