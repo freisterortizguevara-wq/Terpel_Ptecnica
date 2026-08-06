@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { StationList } from '../components/StationList';
 import { ServicesDisplay } from '../components/ServicesDisplay';
-import { useStations } from '../hooks/useStations'; // ✅ Agregar esta línea
+import { useStations } from '../hooks/useStations';
 
 export const StationsPage = () => {
   const [selectedStationId, setSelectedStationId] = useState(null);
-  const { data: stations } = useStations(); // ✅ Para contar estaciones
+  const { data: stations } = useStations();
 
   return (
     <div className="stations-page">
@@ -13,22 +13,23 @@ export const StationsPage = () => {
         <div className="header-left">
           <div className="logo-container">
             <img 
-              src="/images/logo-terpel.jpg" 
+              src="https://raw.githubusercontent.com/freisterortizguevara-wq/Terpel_Ptecnica/main/images/logo-terpel.jpg" 
               alt="Logo Terpel" 
               className="logo-terpel"
               onError={(e) => {
-               // Si la imagen no carga, mostrar texto
-              e.target.style.display = 'none';
-              const parent = e.target.parentElement;
-              const fallback = document.createElement('div');
-              fallback.className = 'logo-text-fallback';
-              fallback.innerHTML = `
-              <span style="font-size: 28px; background: #E63946; color: white; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 8px;">⛽</span>
-              <span style="font-size: 24px; font-weight: 700; color: #212529; margin-left: 8px;">Ter<span style="color: #E63946;">pel</span></span>
-    `;
-    parent.appendChild(fallback);
-  }}
-/>
+                // Si la imagen no carga, mostrar texto
+                e.target.style.display = 'none';
+                const parent = e.target.parentElement;
+                const fallback = document.createElement('div');
+                fallback.className = 'logo-text-fallback';
+                fallback.style.cssText = 'display:flex; align-items:center; gap:10px;';
+                fallback.innerHTML = `
+                  <span style="font-size:28px; background:#E63946; color:white; width:44px; height:44px; display:flex; align-items:center; justify-content:center; border-radius:8px;">⛽</span>
+                  <span style="font-size:24px; font-weight:700; color:#212529;">Ter<span style="color:#E63946;">pel</span></span>
+                `;
+                parent.appendChild(fallback);
+              }}
+            />
           </div>
           <div className="header-text">
             <h1>Contenido por Estación</h1>
