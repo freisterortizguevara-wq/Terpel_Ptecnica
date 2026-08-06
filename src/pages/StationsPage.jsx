@@ -7,16 +7,23 @@ export const StationsPage = () => {
   const [selectedStationId, setSelectedStationId] = useState(null);
   const { data: stations } = useStations();
 
+  // URL del logo para GitHub Pages
+  const logoUrl = '/Terpel_Ptecnica/images/logo-terpel.jpg';
+
+  // Depuración: mostrar la URL en consola
+  console.log('🔍 URL del logo:', logoUrl);
+
   return (
     <div className="stations-page">
       <header className="page-header">
         <div className="header-left">
           <div className="logo-container">
             <img 
-              src="https://raw.githubusercontent.com/freisterortizguevara-wq/Terpel_Ptecnica/main/images/logo-terpel.jpg" 
+              src={logoUrl}
               alt="Logo Terpel" 
               className="logo-terpel"
               onError={(e) => {
+                console.error('❌ Error al cargar el logo:', logoUrl);
                 // Si la imagen no carga, mostrar texto
                 e.target.style.display = 'none';
                 const parent = e.target.parentElement;
