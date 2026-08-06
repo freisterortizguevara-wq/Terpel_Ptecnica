@@ -1,0 +1,1054 @@
+/* ========================================
+    TERPEL APP - ESTILOS CORPORATIVOS
+   ======================================== */
+
+/* ========== VARIABLES ========== */
+:root {
+  /* Colores principales Terpel */
+  --terpel-red: #E63946;
+  --terpel-red-dark: #C62828;
+  --terpel-red-light: #FDE8EA;
+  --terpel-gold: #C4A84D;
+  --terpel-gold-light: #F5F0E0;
+  
+  /* Colores neutros */
+  --terpel-white: #FFFFFF;
+  --terpel-gray-50: #F8F9FA;
+  --terpel-gray-100: #F1F3F5;
+  --terpel-gray-200: #E9ECEF;
+  --terpel-gray-300: #DEE2E6;
+  --terpel-gray-400: #CED4DA;
+  --terpel-gray-500: #ADB5BD;
+  --terpel-gray-600: #6C757D;
+  --terpel-gray-700: #495057;
+  --terpel-gray-800: #343A40;
+  --terpel-gray-900: #212529;
+  
+  /* Sombras */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.08);
+  --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.10);
+  --shadow-red: 0 4px 16px rgba(230, 57, 70, 0.15);
+  
+  /* Bordes */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  
+  /* Transiciones */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Tipografía */
+  --font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ========== RESET ========== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========== GLOBALES ========== */
+body {
+  font-family: var(--font-family);
+  background: var(--terpel-gray-100);
+  color: var(--terpel-gray-900);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========== APP ========== */
+.app {
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/* ========== PÁGINA PRINCIPAL ========== */
+.stations-page {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  background: var(--terpel-white);
+  border-radius: var(--radius-lg);
+  padding: 32px 36px 28px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Barra superior decorativa */
+.stations-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--terpel-red), var(--terpel-gold), var(--terpel-red));
+  background-size: 200% 100%;
+  animation: gradientMove 4s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0 24px 0;
+  border-bottom: 1px solid var(--terpel-gray-200);
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Logo */
+.logo-container {
+  flex-shrink: 0;
+  padding: 4px 12px 4px 4px;
+  border-radius: var(--radius-md);
+  background: var(--terpel-white);
+  transition: var(--transition);
+}
+
+.logo-container:hover {
+  transform: scale(1.02);
+}
+
+.logo-terpel {
+  height: 44px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Títulos del header */
+.header-text h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--terpel-gray-900);
+  letter-spacing: -0.3px;
+}
+
+.header-text h1 .accent {
+  color: var(--terpel-red);
+}
+
+.header-text .subtitle {
+  font-size: 14px;
+  color: var(--terpel-gray-600);
+  margin-top: 2px;
+  font-weight: 400;
+}
+
+/* Botón Visitar Terpel */
+.header-right {
+  flex-shrink: 0;
+}
+
+.btn-terpel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 22px;
+  color: var(--terpel-gray-700);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 13px;
+  transition: var(--transition);
+  border: 1.5px solid var(--terpel-gray-300);
+  background: var(--terpel-white);
+}
+
+.btn-terpel:hover {
+  border-color: var(--terpel-red);
+  color: var(--terpel-red);
+  background: var(--terpel-red-light);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-red);
+}
+
+.btn-terpel:active {
+  transform: translateY(0);
+}
+
+.btn-terpel .icon {
+  font-size: 16px;
+}
+
+/* ========================================
+   CONTENEDOR PRINCIPAL
+   ======================================== */
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin: 4px 0 12px;
+}
+
+@media (max-width: 992px) {
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* ========================================
+   SECCIONES
+   ======================================== */
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 0 4px;
+}
+
+.section-header h2 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--terpel-gray-900);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-header h2 .badge {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--terpel-gray-600);
+  background: var(--terpel-gray-100);
+  padding: 2px 12px;
+  border-radius: 30px;
+}
+
+.section-header .station-count {
+  font-size: 13px;
+  color: var(--terpel-gray-600);
+  background: var(--terpel-gray-100);
+  padding: 4px 16px;
+  border-radius: 30px;
+  font-weight: 500;
+}
+
+/* ========================================
+   LISTA DE ESTACIONES
+   ======================================== */
+
+.station-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.station-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.station-list::-webkit-scrollbar-track {
+  background: var(--terpel-gray-100);
+  border-radius: 10px;
+}
+
+.station-list::-webkit-scrollbar-thumb {
+  background: var(--terpel-gray-400);
+  border-radius: 10px;
+}
+
+.station-list::-webkit-scrollbar-thumb:hover {
+  background: var(--terpel-red);
+}
+
+/* ========================================
+   TARJETA DE ESTACIÓN
+   ======================================== */
+
+.station-card {
+  background: var(--terpel-white);
+  border: 1px solid var(--terpel-gray-200);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.station-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--terpel-red);
+}
+
+.station-card.selected {
+  border-color: var(--terpel-red);
+  background: var(--terpel-red-light);
+  box-shadow: 0 0 0 1px var(--terpel-red), var(--shadow-md);
+}
+
+.station-card.selected .check-mark {
+  display: flex;
+}
+
+/* Contenido de la tarjeta */
+.station-card-content {
+  width: 100%;
+}
+
+.station-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.station-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--terpel-gray-900);
+}
+
+.check-mark {
+  display: none;
+  width: 24px;
+  height: 24px;
+  background: var(--terpel-red);
+  color: white;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.station-card.selected .check-mark {
+  display: flex;
+}
+
+.station-id {
+  font-size: 13px;
+  color: var(--terpel-gray-600);
+  margin: 2px 0;
+}
+
+.station-id strong {
+  font-weight: 600;
+  color: var(--terpel-gray-800);
+}
+
+/* Meta información */
+.station-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+/* Badge de estado */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 14px 3px 10px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.status-badge .dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.status-badge.published {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+
+.status-badge.published .dot {
+  background: #4CAF50;
+}
+
+.status-badge.draft {
+  background: #FFF3E0;
+  color: #E65100;
+}
+
+.status-badge.draft .dot {
+  background: #FF9800;
+}
+
+/* Fecha de actualización */
+.updated-date {
+  font-size: 12px;
+  color: var(--terpel-gray-500);
+}
+
+/* Ubicación de la estación */
+.station-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 5px 14px;
+  background: var(--terpel-gray-50);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--terpel-gray-700);
+  flex-wrap: wrap;
+  border: 1px solid var(--terpel-gray-100);
+}
+
+.station-location .location-icon {
+  font-size: 14px;
+}
+
+.station-location .location-city {
+  font-weight: 500;
+  color: var(--terpel-gray-800);
+}
+
+.station-location .location-address {
+  color: var(--terpel-gray-500);
+}
+
+.station-location .location-address::before {
+  content: "•";
+  margin-right: 6px;
+  color: var(--terpel-gray-400);
+}
+
+/* ========================================
+   BOTÓN TOGGLE
+   ======================================== */
+
+.station-card .btn-toggle {
+  margin-top: 12px;
+  padding: 5px 18px;
+  border: 1.5px solid var(--terpel-gray-300);
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--terpel-white);
+  color: var(--terpel-gray-600);
+}
+
+.station-card .btn-toggle:hover {
+  transform: scale(1.04);
+  box-shadow: var(--shadow-sm);
+}
+
+.station-card .btn-toggle:focus-visible {
+  outline: 2px solid var(--terpel-red);
+  outline-offset: 2px;
+}
+
+.station-card .btn-toggle.active {
+  border-color: #4CAF50;
+  color: #2E7D32;
+  background: #E8F5E9;
+}
+
+.station-card .btn-toggle.inactive {
+  border-color: #EF5350;
+  color: #C62828;
+  background: #FFEBEE;
+}
+
+.station-card .btn-toggle .icon {
+  font-size: 14px;
+}
+
+/* ========================================
+   SERVICIOS
+   ======================================== */
+
+.services-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.services-display {
+  background: var(--terpel-gray-50);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed var(--terpel-gray-300);
+  transition: var(--transition);
+}
+
+.services-display.has-services {
+  border: 1px solid var(--terpel-gray-200);
+  background: var(--terpel-white);
+}
+
+.services-display h3 {
+  color: var(--terpel-gray-700);
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.services-icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  padding: 4px 0;
+}
+
+/* ========================================
+   ÍCONO DE SERVICIO
+   ======================================== */
+
+.service-icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 16px;
+  background: var(--terpel-white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--terpel-gray-200);
+  min-width: 64px;
+  transition: var(--transition);
+}
+
+.service-icon-container:hover {
+  transform: translateY(-3px);
+  border-color: var(--terpel-red);
+  box-shadow: var(--shadow-red);
+}
+
+.service-icon-container .service-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.service-icon-container .service-name {
+  font-size: 11px;
+  color: var(--terpel-gray-600);
+  font-weight: 500;
+}
+
+/* ========================================
+   MAPA
+   ======================================== */
+
+.map-wrapper {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--terpel-gray-200);
+  background: var(--terpel-white);
+  min-height: 200px;
+  transition: var(--transition);
+  position: relative;
+}
+
+.map-wrapper:hover {
+  border-color: var(--terpel-gray-300);
+  box-shadow: var(--shadow-sm);
+}
+
+.station-map-wrapper {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  background: var(--terpel-gray-100);
+}
+
+.station-map-leaflet {
+  width: 100%;
+  height: 100%;
+  background: var(--terpel-gray-100);
+}
+
+/* Overlay con información */
+.map-overlay-info {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
+  padding: 6px 16px 6px 10px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--terpel-gray-800);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.map-overlay-icon {
+  font-size: 14px;
+  background: var(--terpel-red);
+  color: white;
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.map-overlay-name {
+  font-weight: 600;
+  color: var(--terpel-gray-900);
+}
+
+.map-overlay-city {
+  color: var(--terpel-gray-500);
+  font-weight: 400;
+}
+
+/* Placeholder */
+.map-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  min-height: 180px;
+  color: var(--terpel-gray-500);
+  background: var(--terpel-gray-50);
+  border-radius: var(--radius-md);
+  border: 1px dashed var(--terpel-gray-300);
+  height: 200px;
+}
+
+.map-placeholder .icon {
+  font-size: 32px;
+  margin-bottom: 6px;
+  opacity: 0.6;
+}
+
+.map-placeholder p {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  color: var(--terpel-gray-600);
+}
+
+.map-placeholder .subtext {
+  font-size: 12px;
+  color: var(--terpel-gray-400);
+  margin-top: 2px;
+}
+
+/* Popup personalizado */
+.terpel-popup-custom .leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+}
+
+.terpel-popup-custom .leaflet-popup-tip {
+  background: white !important;
+}
+
+.terpel-popup-custom .leaflet-popup-content {
+  margin: 8px 0 !important;
+  font-family: var(--font-family) !important;
+  font-size: 13px !important;
+  min-width: 160px !important;
+  cursor: pointer;
+}
+
+.terpel-popup-custom .leaflet-popup-content:hover {
+  background: #f8f9fa;
+}
+
+/* Controles del mapa */
+.leaflet-control-zoom {
+  border-radius: 8px !important;
+  overflow: hidden;
+  border: none !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10) !important;
+  margin: 8px !important;
+}
+
+.leaflet-control-zoom a {
+  background: white !important;
+  color: var(--terpel-gray-700) !important;
+  border: none !important;
+  font-size: 14px !important;
+  width: 30px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: var(--terpel-red-light) !important;
+  color: var(--terpel-red) !important;
+}
+
+.leaflet-control-zoom a:first-child {
+  border-bottom: 1px solid var(--terpel-gray-200) !important;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+.page-footer {
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid var(--terpel-gray-200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.page-footer p {
+  font-size: 13px;
+  color: var(--terpel-gray-500);
+}
+
+.page-footer .footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.page-footer .footer-links a {
+  font-size: 13px;
+  color: var(--terpel-gray-500);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.page-footer .footer-links a:hover {
+  color: var(--terpel-red);
+}
+
+/* ========================================
+   ESTADOS DE CARGA Y ERROR
+   ======================================== */
+
+.loading-spinner {
+  color: var(--terpel-gray-600);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 20px;
+}
+
+.loading-spinner::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--terpel-gray-200);
+  border-top-color: var(--terpel-red);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message {
+  color: #C62828;
+  padding: 14px 18px;
+  background: #FFEBEE;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--terpel-red);
+  font-size: 14px;
+}
+
+/* ========================================
+   MENSAJE VACÍO
+   ======================================== */
+
+.empty-message {
+  color: var(--terpel-gray-500);
+  font-size: 14px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.empty-message .icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 8px;
+  opacity: 0.6;
+}
+
+/* ========================================
+   ANIMACIONES
+   ======================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.station-card {
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+.station-card:nth-child(1) { animation-delay: 0.05s; }
+.station-card:nth-child(2) { animation-delay: 0.10s; }
+.station-card:nth-child(3) { animation-delay: 0.15s; }
+.station-card:nth-child(4) { animation-delay: 0.20s; }
+.station-card:nth-child(5) { animation-delay: 0.25s; }
+.station-card:nth-child(6) { animation-delay: 0.30s; }
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .app {
+    padding: 12px;
+  }
+
+  .stations-page {
+    padding: 20px 16px 20px;
+    border-radius: var(--radius-md);
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding-bottom: 16px;
+  }
+
+  .header-left {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .header-text h1 {
+    font-size: 20px;
+  }
+
+  .logo-terpel {
+    height: 36px;
+    max-width: 120px;
+  }
+
+  .header-right {
+    width: 100%;
+  }
+
+  .btn-terpel {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .station-card {
+    padding: 14px 16px;
+  }
+
+  .station-meta {
+    gap: 8px;
+  }
+
+  .services-display {
+    padding: 16px;
+    min-height: 100px;
+  }
+
+  .service-icon-container {
+    padding: 8px 12px;
+    min-width: 54px;
+  }
+
+  .service-icon-container .service-icon {
+    font-size: 20px;
+  }
+
+  .map-wrapper {
+    min-height: 160px;
+  }
+
+  .station-map-wrapper {
+    height: 160px;
+  }
+
+  .map-placeholder {
+    min-height: 140px;
+    height: 160px;
+  }
+
+  .map-overlay-info {
+    bottom: 8px;
+    padding: 4px 12px 4px 8px;
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .map-overlay-icon {
+    width: 22px;
+    height: 22px;
+    font-size: 12px;
+  }
+
+  .map-overlay-city {
+    display: none;
+  }
+
+  .page-footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .page-footer .footer-links {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .stations-page {
+    padding: 14px 12px 16px;
+  }
+
+  .header-text h1 {
+    font-size: 18px;
+  }
+
+  .header-text .subtitle {
+    font-size: 12px;
+  }
+
+  .section-header h2 {
+    font-size: 15px;
+  }
+
+  .section-header .station-count {
+    font-size: 11px;
+    padding: 2px 12px;
+  }
+
+  .station-name {
+    font-size: 14px;
+  }
+
+  .station-card .btn-toggle {
+    font-size: 11px;
+    padding: 4px 14px;
+  }
+
+  .services-icons {
+    gap: 8px;
+  }
+
+  .service-icon-container {
+    padding: 6px 10px;
+    min-width: 48px;
+  }
+
+  .service-icon-container .service-icon {
+    font-size: 18px;
+  }
+
+  .service-icon-container .service-name {
+    font-size: 10px;
+  }
+
+  .map-wrapper {
+    min-height: 140px;
+  }
+
+  .station-map-wrapper {
+    height: 140px;
+  }
+
+  .map-placeholder {
+    min-height: 120px;
+    height: 140px;
+  }
+
+  .map-placeholder .icon {
+    font-size: 24px;
+  }
+
+  .map-placeholder p {
+    font-size: 12px;
+  }
+
+  .map-overlay-info {
+    bottom: 6px;
+    padding: 3px 10px 3px 6px;
+    font-size: 10px;
+  }
+
+  .map-overlay-icon {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+  }
+
+  .map-overlay-name {
+    font-size: 10px;
+  }
+}

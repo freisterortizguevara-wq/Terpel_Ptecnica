@@ -1,0 +1,81 @@
+/* ========================================
+   ESTILOS GLOBALES
+   ======================================== */
+
+:root {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #F1F3F5;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* ========================================
+   ESTILOS DE LEAFLET (IMPORTANTE)
+   ======================================== */
+
+/* Importar estilos de Leaflet */
+@import 'leaflet/dist/leaflet.css';
+
+/* Reset de estilos de Leaflet para evitar conflictos */
+.leaflet-container {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+}
+
+.leaflet-popup-content {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Asegurar que los controles del mapa se vean bien */
+.leaflet-control-zoom {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  border: none !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10) !important;
+  margin: 8px !important;
+}
+
+.leaflet-control-zoom a {
+  background: white !important;
+  color: #495057 !important;
+  border: none !important;
+  font-size: 14px !important;
+  width: 30px !important;
+  height: 30px !important;
+  line-height: 30px !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #FDE8EA !important;
+  color: #E63946 !important;
+}
+
+.leaflet-control-zoom a:first-child {
+  border-bottom: 1px solid #E9ECEF !important;
+}
+
+/* Asegurar que el mapa ocupe todo el espacio */
+.leaflet-container {
+  width: 100% !important;
+  height: 100% !important;
+}
