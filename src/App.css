@@ -1,12 +1,12 @@
 /* ========================================
-    TERPEL APP - ESTILOS CORPORATIVOS
+   🎨 TERPEL APP - ESTILOS CORPORATIVOS 2026
    ======================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
 
 /* ========== VARIABLES ========== */
 :root {
-  /* Colores principales Terpel */
+  /* Colores principales Terpel 2026 */
   --terpel-red: #DA251D;
   --terpel-red-dark: #8F0F0C;
   --terpel-red-light: #FDECEA;
@@ -17,6 +17,11 @@
   --terpel-ink: #101114;
   --terpel-ink-soft: #1B1D22;
   --terpel-ink-line: rgba(255, 255, 255, 0.08);
+
+  /* Textos sobre fondo oscuro */
+  --terpel-text-white: #FFFFFF;
+  --terpel-text-beige: #F5F0E0;
+  --terpel-text-gray: #9CA3AF;
 
   /* Colores neutros */
   --terpel-white: #FFFFFF;
@@ -67,7 +72,7 @@
 /* ========== GLOBALES ========== */
 body {
   font-family: var(--font-family);
-  background: var(--terpel-gray-100);
+  background: var(--terpel-ink);
   color: var(--terpel-gray-900);
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -81,6 +86,7 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+  background: radial-gradient(ellipse at 50% 0%, #1c1e24 0%, var(--terpel-ink) 70%, #0b0b0d 100%);
 }
 
 /* ========== PÁGINA PRINCIPAL ========== */
@@ -88,10 +94,13 @@ body {
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
-  background: var(--terpel-white);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: var(--radius-lg);
   padding: 0 36px 28px;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   position: relative;
   overflow: hidden;
 }
@@ -112,6 +121,7 @@ body {
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .page-header::before {
@@ -120,7 +130,17 @@ body {
   inset: -45% -8% auto auto;
   width: 380px;
   height: 380px;
-  background: radial-gradient(circle, rgba(218, 37, 29, 0.35) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(218, 37, 29, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.page-header::after {
+  content: '';
+  position: absolute;
+  inset: auto -10% -30% auto;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(255, 184, 28, 0.06) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -146,13 +166,13 @@ body {
   filter: drop-shadow(0 4px 10px rgba(218, 37, 29, 0.4));
 }
 
-/* Compatibilidad con logo en imagen, si se usa en vez del SVG */
 .logo-terpel {
   height: 40px;
   width: auto;
   max-width: 150px;
   object-fit: contain;
   display: block;
+  filter: brightness(0) invert(1);
 }
 
 .logo-text {
@@ -180,7 +200,7 @@ body {
   font-weight: 500;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: var(--terpel-gray-500);
+  color: var(--terpel-text-gray);
 }
 
 /* Títulos del header */
@@ -204,7 +224,7 @@ body {
 
 .header-text .subtitle {
   font-size: 13.5px;
-  color: var(--terpel-gray-500);
+  color: var(--terpel-text-gray);
   margin-top: 4px;
   font-weight: 400;
 }
@@ -252,7 +272,6 @@ body {
 
 /* ========================================
    FLOW GAUGE — divisor con animación de flujo
-   (elemento de firma, entre el header y el contenido)
    ======================================== */
 
 .flow-gauge {
@@ -287,7 +306,7 @@ body {
   left: -35%;
   width: 35%;
   height: 100%;
-  background: linear-gradient(90deg, transparent 0%, rgba(218, 37, 29, 0.55) 35%, var(--terpel-gold) 65%, transparent 100%);
+  background: linear-gradient(90deg, transparent 0%, rgba(218, 37, 29, 0.45) 35%, var(--terpel-gold) 65%, transparent 100%);
   opacity: 0.9;
   animation: flowSweep 5.5s ease-in-out infinite;
 }
@@ -340,7 +359,7 @@ body {
   font-family: var(--font-display);
   font-size: 16.5px;
   font-weight: 700;
-  color: var(--terpel-gray-900);
+  color: var(--terpel-white);
   display: flex;
   align-items: center;
   gap: 10px;
@@ -354,14 +373,14 @@ body {
   height: 7px;
   border-radius: 50%;
   background: var(--terpel-red);
-  box-shadow: 0 0 0 3px var(--terpel-red-light);
+  box-shadow: 0 0 0 3px rgba(218, 37, 29, 0.3);
 }
 
 .section-header h2 .badge {
   font-size: 12px;
   font-weight: 500;
-  color: var(--terpel-gray-600);
-  background: var(--terpel-gray-100);
+  color: var(--terpel-text-gray);
+  background: rgba(255, 255, 255, 0.06);
   padding: 2px 12px;
   border-radius: 30px;
 }
@@ -371,10 +390,11 @@ body {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.3px;
-  color: var(--terpel-red-dark);
-  background: var(--terpel-red-light);
+  color: var(--terpel-white);
+  background: rgba(218, 37, 29, 0.2);
   padding: 5px 14px;
   border-radius: 30px;
+  border: 1px solid rgba(218, 37, 29, 0.15);
 }
 
 /* ========================================
@@ -395,12 +415,12 @@ body {
 }
 
 .station-list::-webkit-scrollbar-track {
-  background: var(--terpel-gray-100);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: 10px;
 }
 
 .station-list::-webkit-scrollbar-thumb {
-  background: var(--terpel-gray-400);
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 10px;
 }
 
@@ -413,8 +433,8 @@ body {
    ======================================== */
 
 .station-card {
-  background: var(--terpel-white);
-  border: 1px solid var(--terpel-gray-200);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--radius-md);
   padding: 18px 22px;
   cursor: pointer;
@@ -425,14 +445,14 @@ body {
 
 .station-card:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--terpel-red);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  border-color: rgba(218, 37, 29, 0.3);
 }
 
 .station-card.selected {
   border-color: var(--terpel-red);
-  background: var(--terpel-red-light);
-  box-shadow: 0 0 0 1px var(--terpel-red), var(--shadow-md);
+  background: rgba(218, 37, 29, 0.08);
+  box-shadow: 0 0 0 1px var(--terpel-red), 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .station-card.selected .check-mark {
@@ -454,7 +474,7 @@ body {
 .station-name {
   font-size: 16px;
   font-weight: 600;
-  color: var(--terpel-gray-900);
+  color: var(--terpel-white);
 }
 
 .check-mark {
@@ -476,13 +496,13 @@ body {
 
 .station-id {
   font-size: 13px;
-  color: var(--terpel-gray-600);
+  color: var(--terpel-text-gray);
   margin: 2px 0;
 }
 
 .station-id strong {
   font-weight: 600;
-  color: var(--terpel-gray-800);
+  color: var(--terpel-white);
 }
 
 /* Meta información */
@@ -514,8 +534,8 @@ body {
 }
 
 .status-badge.published {
-  background: #E8F5E9;
-  color: #2E7D32;
+  background: rgba(76, 175, 80, 0.15);
+  color: #81C784;
 }
 
 .status-badge.published .dot {
@@ -523,8 +543,8 @@ body {
 }
 
 .status-badge.draft {
-  background: #FFF3E0;
-  color: #E65100;
+  background: rgba(255, 152, 0, 0.15);
+  color: #FFB74D;
 }
 
 .status-badge.draft .dot {
@@ -534,7 +554,7 @@ body {
 /* Fecha de actualización */
 .updated-date {
   font-size: 12px;
-  color: var(--terpel-gray-500);
+  color: var(--terpel-text-gray);
 }
 
 /* Ubicación de la estación */
@@ -544,12 +564,12 @@ body {
   gap: 8px;
   margin-top: 8px;
   padding: 5px 14px;
-  background: var(--terpel-gray-50);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: 6px;
   font-size: 12px;
-  color: var(--terpel-gray-700);
+  color: var(--terpel-text-gray);
   flex-wrap: wrap;
-  border: 1px solid var(--terpel-gray-100);
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
 .station-location .location-icon {
@@ -558,17 +578,17 @@ body {
 
 .station-location .location-city {
   font-weight: 500;
-  color: var(--terpel-gray-800);
+  color: var(--terpel-white);
 }
 
 .station-location .location-address {
-  color: var(--terpel-gray-500);
+  color: var(--terpel-text-gray);
 }
 
 .station-location .location-address::before {
   content: "•";
   margin-right: 6px;
-  color: var(--terpel-gray-400);
+  color: rgba(255, 255, 255, 0.15);
 }
 
 /* ========================================
@@ -578,7 +598,7 @@ body {
 .station-card .btn-toggle {
   margin-top: 12px;
   padding: 5px 18px;
-  border: 1.5px solid var(--terpel-gray-300);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
   border-radius: 30px;
   font-size: 12px;
   font-weight: 500;
@@ -587,30 +607,30 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background: var(--terpel-white);
-  color: var(--terpel-gray-600);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--terpel-text-gray);
 }
 
 .station-card .btn-toggle:hover {
   transform: scale(1.04);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .station-card .btn-toggle:focus-visible {
-  outline: 2px solid var(--terpel-red);
+  outline: 2px solid var(--terpel-gold);
   outline-offset: 2px;
 }
 
 .station-card .btn-toggle.active {
   border-color: #4CAF50;
-  color: #2E7D32;
-  background: #E8F5E9;
+  color: #81C784;
+  background: rgba(76, 175, 80, 0.12);
 }
 
 .station-card .btn-toggle.inactive {
   border-color: #EF5350;
-  color: #C62828;
-  background: #FFEBEE;
+  color: #EF5350;
+  background: rgba(239, 83, 80, 0.12);
 }
 
 .station-card .btn-toggle .icon {
@@ -628,7 +648,7 @@ body {
 }
 
 .services-display {
-  background: var(--terpel-gray-50);
+  background: rgba(255, 255, 255, 0.03);
   border-radius: var(--radius-md);
   padding: 20px 24px;
   min-height: 140px;
@@ -636,17 +656,17 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px dashed var(--terpel-gray-300);
+  border: 1px dashed rgba(255, 255, 255, 0.06);
   transition: var(--transition);
 }
 
 .services-display.has-services {
-  border: 1px solid var(--terpel-gray-200);
-  background: var(--terpel-white);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .services-display h3 {
-  color: var(--terpel-gray-700);
+  color: var(--terpel-white);
   font-size: 14px;
   font-weight: 500;
   margin-bottom: 12px;
@@ -670,9 +690,9 @@ body {
   align-items: center;
   gap: 4px;
   padding: 10px 16px;
-  background: var(--terpel-white);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: var(--radius-md);
-  border: 1px solid var(--terpel-gray-200);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   min-width: 64px;
   transition: var(--transition);
 }
@@ -680,7 +700,7 @@ body {
 .service-icon-container:hover {
   transform: translateY(-3px);
   border-color: var(--terpel-red);
-  box-shadow: var(--shadow-red);
+  box-shadow: 0 8px 24px rgba(218, 37, 29, 0.15);
 }
 
 .service-icon-container .service-icon {
@@ -690,7 +710,7 @@ body {
 
 .service-icon-container .service-name {
   font-size: 11px;
-  color: var(--terpel-gray-600);
+  color: var(--terpel-text-gray);
   font-weight: 500;
 }
 
@@ -701,29 +721,29 @@ body {
 .map-wrapper {
   border-radius: var(--radius-md);
   overflow: hidden;
-  border: 1px solid var(--terpel-gray-200);
-  background: var(--terpel-white);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
   min-height: 200px;
   transition: var(--transition);
   position: relative;
 }
 
 .map-wrapper:hover {
-  border-color: var(--terpel-gray-300);
-  box-shadow: var(--shadow-sm);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .station-map-wrapper {
   width: 100%;
   height: 200px;
   position: relative;
-  background: var(--terpel-gray-100);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .station-map-leaflet {
   width: 100%;
   height: 100%;
-  background: var(--terpel-gray-100);
+  background: rgba(0, 0, 0, 0.3);
 }
 
 /* Overlay con información */
@@ -732,18 +752,18 @@ body {
   bottom: 12px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(6px);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
   padding: 6px 16px 6px 10px;
   border-radius: 30px;
   display: flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   font-size: 12px;
   font-weight: 500;
-  color: var(--terpel-gray-800);
+  color: var(--terpel-white);
   pointer-events: none;
   white-space: nowrap;
   z-index: 10;
@@ -763,11 +783,11 @@ body {
 
 .map-overlay-name {
   font-weight: 600;
-  color: var(--terpel-gray-900);
+  color: var(--terpel-white);
 }
 
 .map-overlay-city {
-  color: var(--terpel-gray-500);
+  color: var(--terpel-text-gray);
   font-weight: 400;
 }
 
@@ -779,36 +799,36 @@ body {
   justify-content: center;
   padding: 30px 20px;
   min-height: 180px;
-  color: var(--terpel-gray-500);
-  background: var(--terpel-gray-50);
+  color: var(--terpel-text-gray);
+  background: rgba(255, 255, 255, 0.02);
   border-radius: var(--radius-md);
-  border: 1px dashed var(--terpel-gray-300);
+  border: 1px dashed rgba(255, 255, 255, 0.06);
   height: 200px;
 }
 
 .map-placeholder .icon {
   font-size: 32px;
   margin-bottom: 6px;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 .map-placeholder p {
   font-size: 14px;
   font-weight: 500;
   margin: 0;
-  color: var(--terpel-gray-600);
+  color: var(--terpel-text-gray);
 }
 
 .map-placeholder .subtext {
   font-size: 12px;
-  color: var(--terpel-gray-400);
+  color: rgba(255, 255, 255, 0.25);
   margin-top: 2px;
 }
 
 /* Popup personalizado */
 .terpel-popup-custom .leaflet-popup-content-wrapper {
   border-radius: 12px !important;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
   padding: 0 !important;
   overflow: hidden !important;
 }
@@ -834,12 +854,12 @@ body {
   border-radius: 8px !important;
   overflow: hidden;
   border: none !important;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10) !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
   margin: 8px !important;
 }
 
 .leaflet-control-zoom a {
-  background: white !important;
+  background: rgba(255, 255, 255, 0.9) !important;
   color: var(--terpel-gray-700) !important;
   border: none !important;
   font-size: 14px !important;
@@ -854,7 +874,7 @@ body {
 }
 
 .leaflet-control-zoom a:first-child {
-  border-bottom: 1px solid var(--terpel-gray-200) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
 }
 
 /* ========================================
@@ -864,7 +884,7 @@ body {
 .page-footer {
   margin-top: 32px;
   padding-top: 20px;
-  border-top: 1px solid var(--terpel-gray-200);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -874,7 +894,7 @@ body {
 
 .page-footer p {
   font-size: 13px;
-  color: var(--terpel-gray-500);
+  color: var(--terpel-text-gray);
 }
 
 .page-footer .footer-links {
@@ -884,7 +904,7 @@ body {
 
 .page-footer .footer-links a {
   font-size: 13px;
-  color: var(--terpel-gray-500);
+  color: var(--terpel-text-gray);
   text-decoration: none;
   transition: var(--transition);
   position: relative;
@@ -897,14 +917,14 @@ body {
   right: 0;
   bottom: -3px;
   height: 1px;
-  background: var(--terpel-red);
+  background: var(--terpel-gold);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.2s ease;
 }
 
 .page-footer .footer-links a:hover {
-  color: var(--terpel-red);
+  color: var(--terpel-gold);
 }
 
 .page-footer .footer-links a:hover::after {
@@ -916,7 +936,7 @@ body {
    ======================================== */
 
 .loading-spinner {
-  color: var(--terpel-gray-600);
+  color: var(--terpel-text-gray);
   font-size: 14px;
   display: flex;
   align-items: center;
@@ -928,7 +948,7 @@ body {
   content: '';
   width: 20px;
   height: 20px;
-  border: 2px solid var(--terpel-gray-200);
+  border: 2px solid rgba(255, 255, 255, 0.08);
   border-top-color: var(--terpel-red);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
@@ -941,9 +961,9 @@ body {
 }
 
 .error-message {
-  color: #C62828;
+  color: #EF5350;
   padding: 14px 18px;
-  background: #FFEBEE;
+  background: rgba(239, 83, 80, 0.08);
   border-radius: var(--radius-md);
   border-left: 4px solid var(--terpel-red);
   font-size: 14px;
@@ -954,7 +974,7 @@ body {
    ======================================== */
 
 .empty-message {
-  color: var(--terpel-gray-500);
+  color: var(--terpel-text-gray);
   font-size: 14px;
   text-align: center;
   padding: 20px 0;
@@ -964,7 +984,7 @@ body {
   font-size: 32px;
   display: block;
   margin-bottom: 8px;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 /* ========================================
