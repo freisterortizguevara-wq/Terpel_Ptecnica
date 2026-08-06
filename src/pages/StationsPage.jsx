@@ -7,34 +7,53 @@ export const StationsPage = () => {
   const [selectedStationId, setSelectedStationId] = useState(null);
   const { data: stations } = useStations();
 
-  // ✅ URL correcta del logo (sin public/)
-  const logoUrl = 'https://raw.githubusercontent.com/freisterortizguevara-wq/Terpel_Ptecnica/main/images/logo-terpel.jpg';
-
-  console.log('🔍 URL del logo:', logoUrl);
-
   return (
     <div className="stations-page">
       <header className="page-header">
         <div className="header-left">
           <div className="logo-container">
-            <img 
-              src={logoUrl}
-              alt="Logo Terpel" 
-              className="logo-terpel"
-              onError={(e) => {
-                console.error('❌ Error al cargar el logo:', logoUrl);
-                e.target.style.display = 'none';
-                const parent = e.target.parentElement;
-                const fallback = document.createElement('div');
-                fallback.className = 'logo-text-fallback';
-                fallback.style.cssText = 'display:flex; align-items:center; gap:10px;';
-                fallback.innerHTML = `
-                  <span style="font-size:28px; background:#E63946; color:white; width:44px; height:44px; display:flex; align-items:center; justify-content:center; border-radius:8px;">⛽</span>
-                  <span style="font-size:24px; font-weight:700; color:#212529;">Ter<span style="color:#E63946;">pel</span></span>
-                `;
-                parent.appendChild(fallback);
-              }}
-            />
+            {/* ⭐ LOGO DEFINITIVO - CON TEXTO, SIN IMAGEN */}
+            <div className="logo-definitivo" style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '12px',
+              padding: '4px 16px 4px 8px',
+              background: 'white',
+              borderRadius: '12px',
+              border: '2px solid #E63946',
+              boxShadow: '0 2px 8px rgba(230, 57, 70, 0.15)'
+            }}>
+              <span style={{
+                fontSize: '30px',
+                background: '#E63946',
+                color: 'white',
+                width: '48px',
+                height: '48px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                borderRadius: '8px'
+              }}>⛽</span>
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                lineHeight: '1.1'
+              }}>
+                <span style={{
+                  fontSize: '24px',
+                  fontWeight: 800,
+                  color: '#212529',
+                  letterSpacing: '-0.5px'
+                }}>Ter<span style={{color: '#E63946'}}>pel</span></span>
+                <span style={{
+                  fontSize: '9px',
+                  color: '#6C757D',
+                  fontWeight: 600,
+                  letterSpacing: '1.5px',
+                  textTransform: 'uppercase'
+                }}>A tu servicio</span>
+              </div>
+            </div>
           </div>
           <div className="header-text">
             <h1>Contenido por Estación</h1>
