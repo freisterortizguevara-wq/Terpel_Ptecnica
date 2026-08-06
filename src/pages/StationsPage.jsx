@@ -8,8 +8,7 @@ export const StationsPage = () => {
   const { data: stations } = useStations();
 
   // URL del logo RAW de GitHub
-  const logoUrl = 'https://raw.githubusercontent.com/freisterortizguevara-wq/Terpel_Ptecnica/main/images/logo-terpel.jpg';
-
+ const logoUrl = 'https://raw.githubusercontent.com/freisterortizguevara-wq/Terpel_Ptecnica/main/public/images/logo_terpel.jpg';
   // Depuración: mostrar la URL en consola
   console.log('🔍 URL del logo:', logoUrl);
 
