@@ -7,11 +7,12 @@ export const StationsPage = () => {
   const [selectedStationId, setSelectedStationId] = useState(null);
   const { data: stations } = useStations();
 
-  // URL del logo RAW de GitHub
-  const logoUrl = 'https://raw.githubusercontent.com/freisterortizguevara-wq/Terpel_Ptecnica/main/images/logo-terpel.jpg';
+  // URL del logo usando BASE_URL de Vite
+  const logoUrl = `${import.meta.env.BASE_URL}images/logo-terpel.jpg`;
 
   // Depuración: mostrar la URL en consola
   console.log('🔍 URL del logo:', logoUrl);
+  console.log('🔍 BASE_URL:', import.meta.env.BASE_URL);
 
   return (
     <div className="stations-page">
