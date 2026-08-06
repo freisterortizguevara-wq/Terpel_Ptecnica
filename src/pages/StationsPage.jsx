@@ -28,8 +28,8 @@ export const StationsPage = () => {
           </div>
 
           <div className="header-text">
-            <h1>Contenido por Estación</h1>
-            <p className="subtitle">Gestiona los servicios de cada estación</p>
+            <h1>Estaciones de Servicio</h1>
+            <p className="subtitle">Servicios de cada Estacion</p>
           </div>
         </div>
 
